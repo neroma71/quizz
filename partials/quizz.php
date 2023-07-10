@@ -13,10 +13,10 @@
         </div>
         <?php include("../process/randomAnswer.php"); ?> 
         <form action="" method="post">
-            <input type="submit" name="answer[0]" value="<?= $reponsesRand[0] ?>" class="btn">
-            <input type="submit" name="answer[]" value="<?= $reponsesRand[1] ?>" class="btn">
-            <input type="submit" name="answer[]" value="<?= $reponsesRand[2] ?>" class="btn">
-            <input type="submit" name="answer[]" value="<?= $reponsesRand[3] ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $reponsesRand[0] ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $reponsesRand[1] ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $reponsesRand[2] ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $reponsesRand[3] ?>" class="btn">
         </form>
     </section>
 </body>

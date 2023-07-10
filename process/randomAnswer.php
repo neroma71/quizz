@@ -23,11 +23,18 @@ require_once('connexion.php');
    
     if(isset($_POST['answer'])){
           $answer = $_POST['answer'];  
-        if($answer == "blanc"){
-            echo"bonne reponse";
-        }
+  
+    $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = 1");
+    $statement->execute();
+    $reponse = $statement->fetch();
+
+    if($reponse['goodanswer'] == $answer){
+        echo"<p>Bonne réponse</p>";
+        
+    } else{
+        echo"<p>Mauvaise réponse</p>";
     }
 
+}
 
-   
 ?>
