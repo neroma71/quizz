@@ -8,6 +8,7 @@ require_once('connexion.php');
     $reponses= [0=>$question[0], 1=>$question[1],2=>$question[2], 3=>$question[3]];
     $reponsesRand = [];
 
+
     for($i=0; $i<=3;$i++){
         $bool = true;
         do{
@@ -18,5 +19,17 @@ require_once('connexion.php');
             }
         }while($bool);
     }
-    var_dump($reponsesRand);
+//test sur la réponse
+   
+    if(isset($_POST['answer'])){
+        $answer = $_POST['answer'];
+        require_once("connexion.php"); 
+ 
+        $req = $db->query('SELECT * FROM questions');
+         $response = $req->fetch();
+
+         if
+ }
+
+   
 ?>
