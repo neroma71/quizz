@@ -22,14 +22,12 @@ require_once('connexion.php');
 //test sur la réponse
    
     if(isset($_POST['answer'])){
-        $answer = $_POST['answer'];
-        require_once("connexion.php"); 
- 
-        $req = $db->query('SELECT * FROM questions');
-         $response = $req->fetch();
+          $answer = $_POST['answer'];  
+        if($answer == "blanc"){
+            echo"bonne reponse";
+        }
+    }
 
-         if
- }
 
    
 ?>
