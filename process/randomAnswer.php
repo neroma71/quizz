@@ -23,13 +23,16 @@ require_once('connexion.php');
    
     if(isset($_POST['answer'])){
         $answer = $_POST['answer'];
-        require_once("connexion.php"); 
- 
-        $req = $db->query('SELECT * FROM questions');
-         $response = $req->fetch();
-
-         if
- }
+        $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = 1");
+        $statement->execute();
+        $reponse = $statement->fetch();
+        
+        if($reponse == $answer){
+            echo"Bonne réponse";
+        } else{
+            echo"Mauvaise réponse";
+        }
+    }
 
    
 ?>
