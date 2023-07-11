@@ -11,3 +11,7 @@ require_once('process/connexion.php');
     <title>Document</title>
     <link rel="stylesheet" href="../css/quizz.css">
 </head>
+<body>
+    <header>
+        <h1>mon beau quiz</h1>
+    </header>

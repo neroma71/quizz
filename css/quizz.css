@@ -7,6 +7,12 @@
 body{
     overflow-x:hidden;
 }
+header{
+    height:100px;
+    width:100%;
+    margin:0;
+    padding:0;
+}
 .quizz{
     width:1000px;
     margin:0 auto;
@@ -41,4 +47,5 @@ form{
 .btn{
     width:500px;
     height:50px;
+    margin-top:40px;
 }
