@@ -1,6 +1,6 @@
 <?php
- $i = $_SESSION['index'] = 0;
-    
+
+    $i = $_SESSION['index'] = 0;
     $GLOBALS = [];
     $statement = $db->prepare("SELECT idQuestion, question FROM questions");
     $statement->execute();
@@ -19,6 +19,5 @@ $statement->execute();
 $question = $statement->fetch();
 
 echo $question['question'];
-$_SESSION['index'] = $_SESSION['index'];
 
 ?>

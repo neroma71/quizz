@@ -1,7 +1,5 @@
 <?php
-   session_start([
-        'rand'=>true
-   ]);
+   session_start();
     require_once('../process/connexion.php');
  
 
@@ -12,6 +10,20 @@
         $statement = $db->prepare("SELECT * FROM users where pseudo = '$pseudo'");
         $statement->execute();
         $user = $statement->fetch();
+
+        $i = $_SESSION['index'] = 0;
+    
+    $GLOBALS = [];
+    $statement = $db->prepare("SELECT idQuestion, question FROM questions");
+    $statement->execute();
+    $questions = $statement->fetchALL();
+    $index = 0;
+    foreach($questions as $question){
+        $GLOBALS[$index] = $question['idQuestion'];
+        $index+=1;
+    }
+
+    shuffle($GLOBALS);
 
         //si $user retourne false alors le pseudo n'existe pas encore, on va donc le créer avec une requête insert
         if(!$user){
@@ -34,7 +46,7 @@
     }
 ?>
 <main>
-    <form method="post" action="quizz.php">
+    <form method="post" action="../index.php">
         <label for="username">username :</label>
         <input type="text" name="username">
         <input type="submit">
