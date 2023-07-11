@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once('../process/connexion.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +14,16 @@
 <body>
     <section class="quizz">
         <div class="question">
-            <p>Quelle est la couleur du cheval blanc d'Henri Quatre ?</p>
+            <p>
+            <?php include('../process/randomQuestion.php'); ?>
+            </p>
         </div>
-        <form action="../process/answer.php" method="post">
-            <input type="submit" name="answer[]" value="blanc" class="btn">
-            <input type="submit" name="answer[]" value="rouge" class="btn">
-            <input type="submit" name="answer[]" value="bleu" class="btn">
-            <input type="submit" name="answer[]" value="vert" class="btn">
-        </form>
+        <?php include("../process/randomAnswer.php"); ?> 
+        <form action="" method="post">
+            <input type="submit" name="answer" value="<?= $reponsesRand[0] ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $reponsesRand[1] ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $reponsesRand[2] ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $reponsesRand[3] ?>" class="btn">
     </section>
 </body>
 </html>

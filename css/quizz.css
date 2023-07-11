@@ -21,6 +21,15 @@ body{
 .question p{
     margin-top:30px;
 }
+.reponse{
+    margin-top:10px;
+}
+#good{
+    color:lime;
+}
+#bad{
+    color:red;
+}
 form{
   width:1000px;
     margin:20px auto;
