@@ -1,5 +1,5 @@
 <?php
-require_once('connexion.php');
+
 
     $statement = $db->prepare("SELECT answer1,answer2,answer3,goodanswer FROM questions WHERE idquestion = 1");
     $statement->execute();

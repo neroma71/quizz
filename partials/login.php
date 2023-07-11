@@ -1,6 +1,7 @@
 <?php
+   session_start();
     require_once('../process/connexion.php');
-    session_start();
+ 
 
     //rentre dans la boucle lorsque l'utilisateur appuie sur envoie et que l'inpu n'est pas vide
     if(isset($_POST['username'])&& $_POST['username'] != ''){
@@ -20,16 +21,18 @@
             ]);   
             //le dernier id inséré, ici l'id du user, est stocké dans une variable globale est sera utilisé sur les autres pages
             $_SESSION['idUser'] = $db->lastInsertId();
+            $_SESSION['rand'] = true;
             header('location: ../index.php');
         } else{
             //$user n'est pas vide cela veut dire que la requête effectuée plus haut à trouver un utilisateur ayant ce pseudo
             $_SESSION['idUser'] = $_POST['username'];
+            $_SESSION['rand'] = true;
             header('location: ../index.php');
         }
     }
 ?>
 <main>
-    <form method="post" action="login.php">
+    <form method="post" action="quizz.php">
         <label for="username">username :</label>
         <input type="text" name="username">
         <input type="submit">

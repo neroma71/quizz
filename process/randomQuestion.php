@@ -1,21 +1,25 @@
 <?php
 
-require_once('connexion.php');
-$_SESSSION['index'] = 0;
+if($_SESSION['rand']){
+    $_SESSSION['index'] = 0;
 
-$GLOBALS = [];
-$statement = $db->prepare("SELECT idQuestion, question FROM questions");
-$statement->execute();
-$questions = $statement->fetchALL();
-$index = 0;
-foreach($questions as $question){
-    $GLOBALS[$index] = $question['idQuestion'];
-    $index++;
+    $GLOBALS = [];
+    $statement = $db->prepare("SELECT idQuestion, question FROM questions");
+    $statement->execute();
+    $questions = $statement->fetchALL();
+    $index = 0;
+    foreach($questions as $question){
+        $GLOBALS[$index] = $question['idQuestion'];
+        $index++;
+    }
+
+    $_SESSION['rand'] = false;
 }
 
-$statement = $db->prepare("SELECT idQuestion, question FROM questions WHERE idQuestion ='$GLOBALS[$index]'");
+
+$statement = $db->prepare("SELECT * FROM questions WHERE idQuestion ='$GLOBALS[$index]'");
 $statement->execute();
-$questions = $statement->fetchALL();
-shuffle($GLOBALS);
-var_dump($GLOBALS);
+$question = $statement->fetchALL();
+
+var_dump($question)
 ?>
