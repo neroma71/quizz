@@ -1,7 +1,5 @@
 <?php
-
-
-    $_SESSION['index'] = 0;
+ $i = $_SESSION['index'] = 0;
     
     $GLOBALS = [];
     $statement = $db->prepare("SELECT idQuestion, question FROM questions");
@@ -10,7 +8,7 @@
     $index = 0;
     foreach($questions as $question){
         $GLOBALS[$index] = $question['idQuestion'];
-        $index++;
+        $index+=1;
     }
 
     shuffle($GLOBALS);
@@ -21,5 +19,6 @@ $statement->execute();
 $question = $statement->fetch();
 
 echo $question['question'];
-$_SESSION['index'] = $_SESSION['index'] +1;
+$_SESSION['index'] = $_SESSION['index'];
+
 ?>

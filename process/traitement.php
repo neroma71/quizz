@@ -10,19 +10,13 @@ $i = $_SESSION['index'];
  
    
     if(isset($_POST['answer'])){
-          $answer = $_POST['answer'];  
+          $_SESSION['reponse'] = $_POST['answer'];  
           $i = $_SESSION['index']; 
     $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = '$GLOBALS[$i]'");
     $statement->execute();
     $reponse = $statement->fetch();
 
-    if($reponse['goodanswer'] == $answer){
-        echo"<p id='good' class='reponse'>Bonne réponse</p>";
-       
-    }else{
-        echo"<p id='bad' class='reponse'>Mauvaise réponse</p>";
-    }
-    $_SESSION['index']+=1;
+        header('location: ../partials/result.php');
 }
 
 ?>
