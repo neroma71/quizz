@@ -22,17 +22,20 @@ require_once('connexion.php');
 //test sur la réponse
    
     if(isset($_POST['answer'])){
-        $answer = $_POST['answer'];
-        $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = 1");
-        $statement->execute();
-        $reponse = $statement->fetch();
-        
-        if($reponse == $answer){
-            echo"Bonne réponse";
-        } else{
-            echo"Mauvaise réponse";
-        }
-    }
+    
+    $answer = $_POST['answer'];  
+    $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = 1");
+    $statement->execute();
+    $reponse = $statement->fetch();
 
-   
+    if($reponse['goodanswer'] == $answer){
+        echo"<p>Bonne réponse</p>";
+        
+    } else{
+        echo"<p>Mauvaise réponse</p>";
+    }
+ }
+
+
+
 ?>
