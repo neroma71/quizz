@@ -1,7 +1,7 @@
 <?php
 
-
-    $statement = $db->prepare("SELECT answer1,answer2,answer3,goodanswer FROM questions WHERE idquestion = 1");
+    $i=$_SESSION['index'];
+    $statement = $db->prepare("SELECT answer1,answer2,answer3,goodanswer FROM questions WHERE idquestion = '$GLOBALS[$i]'");
     $statement->execute();
     $question = $statement->fetch();
 
@@ -20,22 +20,24 @@
         }while($bool);
     }
 //test sur la réponse
-   
-    if(isset($_POST['answer'])){
+
+    if(isset($_POST['answer']) && $_POST['answer']!= ''){
     
-    $answer = $_POST['answer'];  
-    $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = 1");
+    $_SESSION['reponse']= $_POST['answer']; 
+
+    $i=$_SESSION['index'];
+    $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = '$GLOBALS[$i]'");
     $statement->execute();
     $reponse = $statement->fetch();
-
-    if($reponse['goodanswer'] == $answer){
+    var_dump($reponse['goodanswer']);
+        var_dump($_SESSION['reponse']);
+    if($reponse['goodanswer'] == $_SESSION['reponse']){
         echo"<p>Bonne réponse</p>";
         
     } else{
         echo"<p>Mauvaise réponse</p>";
     }
  }
-
-
+ $_SESSION['index'] = $_SESSION['index'] +1;
 
 ?>
