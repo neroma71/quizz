@@ -20,10 +20,10 @@ require_once('../process/connexion.php');
         </div>
         <?php include("../process/randomAnswer.php"); ?> 
         <form action="" method="post">
-            <input type="submit" name="answer" value="<?= $reponsesRand[0] ?>" class="btn">
-            <input type="submit" name="answer" value="<?= $reponsesRand[1] ?>" class="btn">
-            <input type="submit" name="answer" value="<?= $reponsesRand[2] ?>" class="btn">
-            <input type="submit" name="answer" value="<?= $reponsesRand[3] ?>" class="btn">
+        <input type="submit" name="answer" value="<?= $reponses[0] ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $reponses[1]  ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $reponses[2]  ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $reponses[3] ?>" class="btn">
     </section>
 </body>
 </html>
