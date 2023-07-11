@@ -1,5 +1,7 @@
 <?php
-   session_start();
+   session_start([
+        'rand'=>true
+   ]);
     require_once('../process/connexion.php');
  
 
