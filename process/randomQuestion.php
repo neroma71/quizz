@@ -1,8 +1,8 @@
 <?php
 
-if($_SESSION['rand']){
-    $_SESSSION['index'] = 0;
 
+    $_SESSION['index'] = 0;
+    
     $GLOBALS = [];
     $statement = $db->prepare("SELECT idQuestion, question FROM questions");
     $statement->execute();
@@ -13,13 +13,13 @@ if($_SESSION['rand']){
         $index++;
     }
 
-    $_SESSION['rand'] = false;
-}
+    shuffle($GLOBALS);
 
-
-$statement = $db->prepare("SELECT * FROM questions WHERE idQuestion ='$GLOBALS[$index]'");
+$i = $_SESSION['index'];
+$statement = $db->prepare("SELECT * FROM questions WHERE idQuestion ='$GLOBALS[$i]'");
 $statement->execute();
-$question = $statement->fetchALL();
+$question = $statement->fetch();
 
-var_dump($question)
+echo $question['question'];
+$_SESSION['index'] = $_SESSION['index'] +1;
 ?>
