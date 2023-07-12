@@ -30,10 +30,10 @@ require_once('../process/connexion.php');
         </div>
         <?php include("../process/testanswer.php"); ?> 
         <form action="" method="post">
-
             <input type="submit" name="answer" value="<?= $_SESSION['reps'][0] ?>" class="btn">
             <input type="submit" name="answer" value="<?= $_SESSION['reps'][1]  ?>" class="btn">
             <input type="submit" name="answer" value="<?= $_SESSION['reps'][2]  ?>" class="btn">
             <input type="submit" name="answer" value="<?= $_SESSION['reps'][3] ?>" class="btn">
+        </form>
 
 </section>

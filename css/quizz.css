@@ -8,10 +8,20 @@ body{
     overflow-x:hidden;
 }
 header{
+    position:fixed;
     height:100px;
     width:100%;
-    margin:0;
-    padding:0;
+    top:0;
+    left:0;
+    background:rgb(53, 50, 50);
+}
+h1{
+    position:fixed;
+    width:100%;
+    top:25px;
+    text-align:center;
+    color:white;
+    font-weight:100;
 }
 .quizz{
     width:1000px;
@@ -20,7 +30,7 @@ header{
 .question{
     width:1000px;
     height:200px;
-    margin-top:50px;
+    margin-top:150px;
     border:1px solid grey;
     border-radius:10px;
     text-align:center;
