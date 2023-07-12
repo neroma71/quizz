@@ -18,15 +18,23 @@ require_once('../process/connexion.php');
 <section class="quizz">
         <div class="question">
             <p>
-            <?php include('../process/randomQuestion.php'); ?>
+                
+            <?php
+                $id = $_SESSION['id']; 
+                $statement = $db->prepare("SELECT * FROM questions WHERE idQuestion ='$id'");
+                $statement->execute();
+                $question = $statement->fetch();  
+                echo $question['question'];
+                var_dump($_SESSION['reps']);
+                ?>
             </p>
         </div>
         <?php include("../process/testanswer.php"); ?> 
         <form action="" method="post">
-         
-            <input type="submit" name="answer" value="<?= $reponses[0] ?>" class="btn">
-            <input type="submit" name="answer" value="<?= $reponses[1]  ?>" class="btn">
-            <input type="submit" name="answer" value="<?= $reponses[2]  ?>" class="btn">
-            <input type="submit" name="answer" value="<?= $reponses[3] ?>" class="btn">
+
+            <input type="submit" name="answer" value="<?= $_SESSION['reps'][0] ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $_SESSION['reps'][1]  ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $_SESSION['reps'][2]  ?>" class="btn">
+            <input type="submit" name="answer" value="<?= $_SESSION['reps'][3] ?>" class="btn">
 
 </section>

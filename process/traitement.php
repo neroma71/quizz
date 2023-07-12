@@ -1,6 +1,6 @@
 <?php
-    $i = $_SESSION['index']; 
-    $statement = $db->prepare("SELECT answer1,answer2,answer3,goodanswer FROM questions WHERE idquestion = '$GLOBALS[$i]'");
+
+    $statement = $db->prepare("SELECT answer1,answer2,answer3,goodanswer FROM questions WHERE idquestion = '".$_SESSION['questions'][0] ."'");
     $statement->execute();
     $question = $statement->fetch();
 
@@ -9,10 +9,8 @@
  
     
     if(isset($_POST['answer'])){
-        $_SESSION['reponse'] = $_POST['answer'];  
-        $_SESSION['reps'] = $reponses;
-        $i = $_SESSION['index']; 
-        $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = '$GLOBALS[$i]'");
+        $_SESSION['reponse'] = $_POST['answer'];
+        $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = '".$_SESSION['questions'][0] ."'");
         $statement->execute();
         $reponse = $statement->fetch();
 

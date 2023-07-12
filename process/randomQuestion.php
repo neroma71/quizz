@@ -1,20 +1,17 @@
 <?php
 
-    $i = $_SESSION['index'] = 0;
-    $GLOBALS = [];
-    $statement = $db->prepare("SELECT idQuestion, question FROM questions");
+if(!isset($_SESSION['questions'])){
+    $statement = $db->prepare("SELECT idQuestion, question FROM questions ORDER BY RAND() LIMIT 10 ");
     $statement->execute();
     $questions = $statement->fetchALL();
     $index = 0;
     foreach($questions as $question){
-        $GLOBALS[$index] = $question['idQuestion'];
-        $index+=1;
+        $_SESSION['questions'][$index] = $question['idQuestion'];
+        $index++;
     }
-
-    shuffle($GLOBALS);
-
-$i = $_SESSION['index'];
-$statement = $db->prepare("SELECT * FROM questions WHERE idQuestion ='$GLOBALS[$i]'");
+}
+    
+$statement = $db->prepare("SELECT * FROM questions WHERE idQuestion ='". $_SESSION['questions'][0] . "'");
 $statement->execute();
 $question = $statement->fetch();
 

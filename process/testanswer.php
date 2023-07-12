@@ -1,8 +1,6 @@
 <?php
-
-    $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = '$GLOBALS[$i]'");
+    $statement = $db->prepare("SELECT * FROM questions WHERE idquestion = '".$_SESSION['questions'][0] ."'");
     $statement->execute();
     $reponse = $statement->fetch();
 
-    var_dump($_SESSION['index']);
 ?>
