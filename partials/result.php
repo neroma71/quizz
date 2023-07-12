@@ -20,8 +20,7 @@ require_once('../process/connexion.php');
             <p>
                 
             <?php
-                $id = $_SESSION['id']; 
-                $statement = $db->prepare("SELECT * FROM questions WHERE idQuestion ='$id'");
+                $statement = $db->prepare("SELECT * FROM questions WHERE idQuestion ='". $_SESSION['questions'][0] ."'");
                 $statement->execute();
                 $question = $statement->fetch();  
                 echo $question['question'];
