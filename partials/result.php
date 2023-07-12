@@ -24,33 +24,28 @@ require_once('../process/connexion.php');
                 $statement->execute();
                 $question = $statement->fetch();  
                 echo $question['question'];
-                var_dump($_SESSION['reps']);
 
                 if($_SESSION['reponse'] == $question['goodanswer']){
                     echo 'Bonne réponse';
+                    $_SESSION['score']+=0.5;
                 }else{
                     echo'mauvaise réponse';
                 }
                 ?>
             </p>
         </div>
-        <?php include("../process/testanswer.php"); ?> 
-        <form>
-            <input type="submit" name="answer" value="<?= $_SESSION['reps'][0] ?>" class="btn">
-            <input type="submit" name="answer" value="<?= $_SESSION['reps'][1] ?>" class="btn">
-            <input type="submit" name="answer" value="<?= $_SESSION['reps'][2] ?>" class="btn">
-            <input type="submit" name="answer" value="<?= $_SESSION['reps'][3] ?>" class="btn">
+        <?php include("../process/testanswer.php");
+        var_dump($_SESSION['reps']) ?> 
+        <form method="post">
+            <input type="submit" name="suivant" value="suivant">
         </form>
-        <form method="post" action="">
 
-                <input type="hidden"name="next" value="yes">
-                <input type="submit" value="suivant">
-        </form>
         <?php 
-            if(isset($_POST['next'])){
+            if(isset($_POST['suivant'])){
                 array_splice($_SESSION['questions'],0,1);
                 var_dump($_SESSION['questions']);
-                
+
+
                 if(count($_SESSION['questions'])>0){
                     header('location: ../index.php');
                 }else{
