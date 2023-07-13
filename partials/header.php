@@ -9,7 +9,7 @@ require_once('process/connexion.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/quizz.css">
+    <link rel="stylesheet" href="../css/quizz.css">
 </head>
 <body>
     <header>
