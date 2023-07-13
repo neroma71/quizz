@@ -9,6 +9,7 @@
  
     
     if(isset($_POST['answer'])){
+        
         $_SESSION['reponse'] = $_POST['answer'];
         $_SESSION['reps'] = $reponses;
         $statement = $db->prepare("SELECT goodanswer FROM questions WHERE idquestion = '".$_SESSION['questions'][0] ."'");

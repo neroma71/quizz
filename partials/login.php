@@ -11,7 +11,6 @@
         $statement->execute();
         $user = $statement->fetch();
 
-        $i = $_SESSION['index'] = 0;
     
     $GLOBALS = [];
     $statement = $db->prepare("SELECT idQuestion, question FROM questions");
@@ -31,22 +30,21 @@
             $sqlQuery = 'INSERT INTO users(pseudo) VALUES (?)';
             $insertPatient = $db->prepare($sqlQuery);
             $insertPatient->execute([
-                $_POST['username']
+            $_POST['username']
             ]);   
             //le dernier id inséré, ici l'id du user, est stocké dans une variable globale est sera utilisé sur les autres pages
             $_SESSION['idUser'] = $db->lastInsertId();
-            $_SESSION['rand'] = true;
+
             header('location: ../index.php');
         } else{
             //$user n'est pas vide cela veut dire que la requête effectuée plus haut à trouver un utilisateur ayant ce pseudo
-            $_SESSION['idUser'] = $_POST['username'];
-            $_SESSION['rand'] = true;
+            $_SESSION['idUser'] = $user['id'];
             header('location: ../index.php');
         }
     }
 ?>
 <main>
-    <form method="post" action="../index.php">
+    <form method="post" action="">
         <label for="username">username :</label>
         <input type="text" name="username">
         <input type="submit">

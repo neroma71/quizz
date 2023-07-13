@@ -1,5 +1,7 @@
 <?php
-require_once('../process/connexion.php')
+session_start();
+require_once('../process/connexion.php');
+var_dump($_SESSION['idUser']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +11,9 @@ require_once('../process/connexion.php')
     <title>Document</title>
 </head>
 <body>
-    <?php include('../process/promptscore.php') ?>
+    <?php include('../process/promptscore.php') 
+    ?>
+
+    <a href="login.php">Rejouer</a>
 </body>
 </html>

@@ -25,23 +25,34 @@ require_once('../process/connexion.php');
                 echo $question['question'];
 
                 if($_SESSION['reponse'] == $question['goodanswer']){
-                    echo '<div class="good"><p>Gagné</p></di>';
+                    echo 'Bonne réponse';
+                    $_SESSION['score']+=0.5;
                 }else{
                     echo'<div class="bad"><p>Perdu</p></di>';
                 }
                 ?>
             </p>
         </div>
+<<<<<<< HEAD
         <?php include("../process/testanswer.php"); ?> 
      
     <form method="post">
         <input type="submit" name="next" value="suivant" class="btn2">
     </form>
+=======
+        <?php include("../process/testanswer.php");
+        var_dump($_SESSION['reps']) ?> 
+        <form method="post">
+            <input type="submit" name="suivant" value="suivant">
+        </form>
+
+>>>>>>> 38b2c5f18f27886372e515a5abc86863f385d6be
         <?php 
-            if(isset($_POST['next'])){
+            if(isset($_POST['suivant'])){
                 array_splice($_SESSION['questions'],0,1);
                 var_dump($_SESSION['questions']);
-                
+
+
                 if(count($_SESSION['questions'])>0){
                     header('location: ../index.php');
                 }else{
