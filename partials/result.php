@@ -28,7 +28,7 @@ require_once('../process/connexion.php');
                     echo'<div class="good"><p>Gagné</p></di>';
                     $_SESSION['score']+=0.5;
                 }else{
-                    echo'<div class="bad"><p>Perdu</p></di>';
+                    echo'<p>Perdu</p>';
                 }
                 ?>
             </p>
@@ -43,7 +43,7 @@ require_once('../process/connexion.php');
                 array_splice($_SESSION['questions'],0,1);
 
                 if(count($_SESSION['questions'])>0){
-                    header('location: ../index.php');
+                    header('location: ../process/main.php');
                 }else{
                     unset($_SESSION['questions']);
                     header('location: score.php');

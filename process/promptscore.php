@@ -4,8 +4,7 @@
     $iduser = $_SESSION['idUser'];
     
 
-    $sqlQuery = 'INSERT INTO scores(idUsers, score)
-    VALUES (?,?)';
+    $sqlQuery = 'INSERT INTO scores(idUsers, score) VALUES (?,?)';
     $insertPatient = $db->prepare($sqlQuery);
     //relie la requête sql avec les données rentrées dans le formulaire
     $insertPatient->execute([
