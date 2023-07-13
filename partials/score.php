@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once('../process/connexion.php');
-var_dump($_SESSION['idUser']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

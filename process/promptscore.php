@@ -13,7 +13,7 @@
         $score
   ]);
 
-    $statement = $db->prepare("SELECT * FROM scores INNER JOIN users ON Users.id = scores.idUsers ORDER BY score DESC");
+    $statement = $db->prepare("SELECT * FROM scores INNER JOIN users ON Users.id = scores.idUsers ORDER BY score DESC LIMIT 10");
     $statement->execute();
     $scores = $statement->fetchALL();
     $top = 1;
