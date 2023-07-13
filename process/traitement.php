@@ -15,6 +15,7 @@
         $statement->execute();
         $reponse = $statement->fetch();
 
+        
         header('location: ../partials/result.php');
 }
 

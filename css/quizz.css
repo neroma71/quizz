@@ -13,7 +13,7 @@ header{
     width:100%;
     top:0;
     left:0;
-    background:rgb(53, 50, 50);
+    background: linear-gradient(#656565, #000000);
 }
 h1{
     position:fixed;
@@ -34,6 +34,7 @@ h1{
     border:1px solid grey;
     border-radius:10px;
     text-align:center;
+    box-shadow: 1px 5px 5px grey;
 }
 .question p{
     margin-top:50px;
@@ -41,11 +42,38 @@ h1{
 .reponse{
     margin-top:10px;
 }
-#good{
-    color:lime;
+.good{
+    width:250px;
+    height:250px;
+    margin:150px auto;
+    border-radius:50%;
+    background:url(../images/good.jpg)center no-repeat;
+    background-size:cover;
 }
-#bad{
-    color:red;
+.good p{
+    font-size:30px;
+    font-weight:1000;
+    color:rgb(210, 118, 233);
+    text-shadow: 2px 2px 3px black;
+    line-height:250px;
+    border-radius:50%;
+}
+.bad{
+    width:250px;
+    height:250px;
+    margin:150px auto;
+    border:1px solid black;
+    border-radius:50%;
+    background:url(../images/perdu.jpg)center no-repeat;
+    background-size:cover;
+}
+.bad p{
+    font-size:30px;
+    font-weight:1000;
+    color:rgb(210, 118, 233);
+    text-shadow: 2px 2px 3px black;
+    line-height:250px;
+    border-radius:50%;
 }
 form{
     width:1000px;
@@ -58,4 +86,9 @@ form{
     width:500px;
     height:50px;
     margin-top:40px;
+}
+.btn2{
+    width:500px;
+    height:50px;
+    margin-top:-140px;
 }

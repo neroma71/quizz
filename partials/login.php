@@ -4,7 +4,7 @@
  
 
     //rentre dans la boucle lorsque l'utilisateur appuie sur envoie et que l'inpu n'est pas vide
-    if(isset($_POST['username'])&& $_POST['username'] != ''){
+    if(!empty($_POST['username'])){
         //requête qui vérifie si le pseudo de l'utilisateur est déjà présent dans la base de donnée
         $pseudo = $_POST['username'];
         $statement = $db->prepare("SELECT * FROM users where pseudo = '$pseudo'");
