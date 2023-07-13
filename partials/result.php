@@ -25,10 +25,10 @@ require_once('../process/connexion.php');
                 echo $question['question'];
 
                 if($_SESSION['reponse'] == $question['goodanswer']){
-                    echo'<div class="good"><p>Gagné</p></di>';
+                    echo'<p>Gagné</p>';
                     $_SESSION['score']+=0.5;
                 }else{
-                    echo'<div class="bad"><p>Perdu</p></di>';
+                    echo'<p>Perdu</p>';
                 }
                 ?>
             </p>
@@ -44,7 +44,7 @@ require_once('../process/connexion.php');
                 var_dump($_SESSION['questions']);
 
                 if(count($_SESSION['questions'])>0){
-                    header('location: ../index.php');
+                    header('location: ../process/main.php');
                 }else{
                     unset($_SESSION['questions']);
                     header('location: score.php');

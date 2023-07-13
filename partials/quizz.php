@@ -18,7 +18,7 @@ require_once('../process/connexion.php');
             <?php include('../process/randomQuestion.php'); ?>
             </p>
         </div>
-        <?php include("../process/randomAnswer.php"); ?> 
+        <?php include("../process/traitement.php"); ?> 
         <form action="" method="post">
             <input type="submit" name="answer" value="<?= $reponses[0] ?>" class="btn">
             <input type="submit" name="answer" value="<?= $reponses[1]  ?>" class="btn">

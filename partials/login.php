@@ -1,8 +1,4 @@
 <?php
-   session_start();
-    require_once('../process/connexion.php');
- 
-
     //rentre dans la boucle lorsque l'utilisateur appuie sur envoie et que l'inpu n'est pas vide
     if(!empty($_POST['username'])){
         //requête qui vérifie si le pseudo de l'utilisateur est déjà présent dans la base de donnée
@@ -35,18 +31,18 @@
             //le dernier id inséré, ici l'id du user, est stocké dans une variable globale est sera utilisé sur les autres pages
             $_SESSION['idUser'] = $db->lastInsertId();
 
-            header('location: ../index.php');
+            header('location: ../process/main.php');
         } else{
             //$user n'est pas vide cela veut dire que la requête effectuée plus haut à trouver un utilisateur ayant ce pseudo
             $_SESSION['idUser'] = $user['id'];
-            header('location: ../index.php');
+            header('location: ../process/main.php');
         }
     }
 ?>
-<main>
-    <form method="post" action="">
-        <label for="username">username :</label>
-        <input type="text" name="username">
-        <input type="submit">
+<section class="quizz">
+    <form method="post" action="" class="login">
+        <input type="text" name="username" class="btn" placeholder="username">
+        <input type="submit"  class="btn">
     </form>
-</main>
+</section>
+

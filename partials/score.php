@@ -11,8 +11,7 @@ var_dump($_SESSION['idUser']);
     <title>Document</title>
 </head>
 <body>
-    <?php include('../process/promptscore.php') 
-    ?>
+    <?php include('../process/promptscore.php'); ?>
 
     <a href="login.php">Rejouer</a>
 </body>

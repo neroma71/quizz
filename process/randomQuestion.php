@@ -1,5 +1,5 @@
 <?php
-
+require_once('connexion.php');
 if(!isset($_SESSION['questions'])){
     
     $statement = $db->prepare("SELECT idQuestion, question FROM questions ORDER BY RAND() LIMIT 10 ");
