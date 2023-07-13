@@ -3,6 +3,13 @@
     $score = $_SESSION['score'];
     $iduser = $_SESSION['idUser'];
     
+    $req = $db->prepare("SELECT pseudo FROM users WHERE id = '$iduser' ");
+
+    $req->execute();
+
+    $pseudo = $req->fetch();
+
+    echo "<p class='score_perso'>bonjour " .$pseudo[0]. " vote score est de ". $score."</p>";
 
     $sqlQuery = 'INSERT INTO scores(idUsers, score) VALUES (?,?)';
     $insertPatient = $db->prepare($sqlQuery);
@@ -18,7 +25,7 @@
     $top = 1;
 
   foreach($scores as $score){
-    echo '<p>' . $top . '- ' . $score['pseudo'] .' score :'.$score['score'] . '</p>';
+    echo '<p class="score_all_users">' . $top . '- ' . $score['pseudo'] .' score :'.$score['score'] . '</p>';
     $top++;
 }
 

@@ -4,8 +4,10 @@
     padding:0;
     box-sizing:border-box;
     font-family: arial sans-serif;
+    font-family: 'Pacifico', cursive;
 }
 body{
+    margin:0 auto;
     overflow-x:hidden;
     background:url(../images/tableau.jpg)center fixed no-repeat;
     background-size:cover;
@@ -44,20 +46,18 @@ h1{
 .reponse{
     margin-top:10px;
 }
-.good p{
+.good{
     font-size:30px;
     font-weight:1000;
-    color:rgb(210, 118, 233);
+    color:rgb(73, 254, 97)!important;
     text-shadow: 2px 2px 3px black;
-    line-height:250px;
     border-radius:50%;
 }
-.bad p{
+.bad{
     font-size:30px;
     font-weight:1000;
-    color:rgb(210, 118, 233);
+    color:rgb(210, 118, 233)!important;
     text-shadow: 2px 2px 3px black;
-    line-height:250px;
     border-radius:50%;
 }
 form{
@@ -87,6 +87,7 @@ form{
     border-radius:10px;
     font-size:20px;
     color:white;
+    cursor:pointer;
 }
 .btn2{
     width:500px;
@@ -96,5 +97,50 @@ form{
     border:1px solid white;
     border-radius:10px;
     font-size:20px;
-    color:white; 
+    color:white;
+    cursor:pointer; 
+}
+.score_perso{
+    width:1000px;
+    margin-top:150px;
+    font-size:30px;
+    color:white;
+    text-align:center;
+}
+.score_all_users{
+    width:1000px;
+    margin-top:50px;
+    font-size:25px;
+    color:white;
+    text-align:center;
+    line-height:10px;
+}
+#retour{
+    position:fixed;
+    color:rgb(73, 254, 97)!important;
+    font-size:25px;
+    top:90px;
+    left:50%;
+    transform:translateX(-50%);
+}
+#retour:hover{
+    color:rgb(210, 118, 233)!important;
+}
+@media only screen and (max-width: 1000px){
+    body{
+        width:100vw;
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+    form{
+        width:100vw;
+        height:150px;
+        margin:0 auto;
+    }
+    .question p{
+        margin-top:50px;
+        color:white;
+        font-size:18px;
+    }
 }

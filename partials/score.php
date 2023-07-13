@@ -8,10 +8,16 @@ require_once('../process/connexion.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/quizz.css">
 </head>
-<body>
-    <?php include('../process/promptscore.php'); ?>
-
-    <a href="login.php">Rejouer</a>
+<body> <header>
+        <h1>mon beau quiz</h1>
+        <a href="../index.php" id="retour">Rejouer</a>
+    </header>
+<section class="quizz">
+    <?php 
+    include('../process/promptscore.php');
+    ?>
+</section>
 </body>
 </html>
