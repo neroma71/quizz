@@ -12,6 +12,6 @@ require_once('../process/connexion.php');
 <body>
     <?php include('../process/promptscore.php'); ?>
 
-    <a href="login.php">Rejouer</a>
+    <a href="../index.php">Rejouer</a>
 </body>
 </html>

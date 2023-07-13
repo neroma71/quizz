@@ -17,39 +17,16 @@ require_once('../process/connexion.php');
 <section class="quizz">
         <div class="question">
             <p>
-                
-            <?php
-                $statement = $db->prepare("SELECT * FROM questions WHERE idQuestion ='". $_SESSION['questions'][0] ."'");
-                $statement->execute();
-                $question = $statement->fetch();  
-                echo $question['question'];
-
-                if($_SESSION['reponse'] == $question['goodanswer']){
-                    echo'<div class="good"><p>Gagné</p></di>';
-                    $_SESSION['score']+=0.5;
-                }else{
-                    echo'<p>Perdu</p>';
-                }
-                ?>
+                <?php include('../process/promptresult.php');?>
+            
             </p>
         </div>
-        <?php include("../process/testanswer.php"); ?> 
+    
      
     <form method="post">
         <input type="submit" name="next" value="suivant" class="btn2">
     </form>
-        <?php 
-            if(isset($_POST['next'])){
-                array_splice($_SESSION['questions'],0,1);
-
-                if(count($_SESSION['questions'])>0){
-                    header('location: ../process/main.php');
-                }else{
-                    unset($_SESSION['questions']);
-                    header('location: score.php');
-                }  
-            }
-        ?>
+        
 
 </section>
 </body>

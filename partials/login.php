@@ -8,7 +8,6 @@
         $user = $statement->fetch();
 
     
-    $GLOBALS = [];
     $statement = $db->prepare("SELECT idQuestion, question FROM questions");
     $statement->execute();
     $questions = $statement->fetchALL();
